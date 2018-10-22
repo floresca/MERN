@@ -9,7 +9,7 @@ app.get('/', (requet, response) => response.send('<h1>hello</h1>'))
 
 app.get('/test', (req, res) => res.send('<h1>test route</h1>'))
 
-// app.get('/test/:num', (req, res) => res.send(`<h1>${req.params.num}</h1>`))
+app.get('/test/:num', (req, res) => res.send(`<h1>${req.params.num}</h1>`))
 
 app.get('/test/add/:num', (req, res) => {
     const num = parseInt(req.params.num, 10);
