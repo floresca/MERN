@@ -7,24 +7,7 @@ app.use(bodyParser.json())
 
 app.get('/', (requet, response) => response.send('<h1>hello</h1>'))
 
-app.get('/test', (req, res) => res.send('<h1>test route</h1>'))
-
-app.get('/test/:num', (req, res) => res.send(`<h1>${req.params.num}</h1>`))
-
-app.get('/test/add/:num', (req, res) => {
-    const num = parseInt(req.params.num, 10);
-    res.send(`<h1>${5 + num}</h1>`)
-})
-
-app.get('/test/subtract', (req, res) => {
-    const num = parseInt(req.query.num, 10);
-    res.send(`<h1>${num - 5}</h1>`);
-})
-
-app.post('text/multiply', (req, res) => {
-    const num = parseInt(req.body.num, 10);
-    res.json({result: num * 5});
-})
+app.get('/:random', (req, res) => res.send(`<h1>${req.query.random}</h1>`))
 
 const port = process.env.PORT || 5000;
 
