@@ -7,7 +7,6 @@
 
 // app.get('/', (requet, response) => response.send('<h1>hello</h1>'))
 
-// app.get('/:random', (req, res) => res.send(`<h1>${req.query.random}</h1>`))
 
 // const port = process.env.PORT || 5000;
 
