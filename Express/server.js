@@ -1,13 +1,20 @@
-// const express = require ('express');
-// const app = express();
-// const bodyParser = require('body-parser');
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
-// app.use(bodyParser.urlencoded({extended: false}));
-// app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
-// app.get('/', (requet, response) => response.send('<h1>hello</h1>'))
+const db = require('./config/keys').mongoURI;
 
+mongoose
+    .connect(db)
+    .then(() => console.log("MongoDB connected"))
+    .catch(err => console.log(err))
 
-// const port = process.env.PORT || 5000;
+app.get('/', (req, res) => res.send('Hello'));
 
-// app.listen(port, () => console.log(`App listning on port ${port}`))
+const port = process.env.PORT || 8080;
+
+app.listen(port, () => console.log('Application listening on port', port));
